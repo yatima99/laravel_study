@@ -3,6 +3,7 @@ use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\RequestSampleController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HiLowController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,6 @@ Route::get('/login', [RequestSampleController::class, 'loginForm']);
 Route::post('/login', [RequestSampleController::class, 'login'])->name('login');
 
 Route::resource('/events', EventController::class)->only(['create', 'store']);
+// ハイローゲーム
+Route::get('/hi-low', [HiLowController::class, 'index'])->name('hi-low');
+Route::post('/hi-low', [HiLowController::class, 'result']);
